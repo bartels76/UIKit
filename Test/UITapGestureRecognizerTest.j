@@ -2,17 +2,22 @@
 @import <OJMoq/OJMoq.j>
 
 @implementation UITapGestureRecognizerTest : OJTestCase
+{
+    id gestureRecognizer;
+    id myDelegate;
+}
+
+- (void)setUp
+{
+    gestureRecognizer = [[UITapGestureRecognizer alloc] init];
+    myDelegate = moq();
+    [gestureRecognizer setDelegate:myDelegate];
+}
 
 - (void)testThatUITapGestureRecognizerDoesCallHandleGestureOnSingleTap
 {
     var touches = [CPSet setWithObjects:[[CPObject alloc] init]];
-    
-    var myDelegate = moq();
-    
     [myDelegate selector:@selector(handleGesture:) times:1];
-    
-    var gestureRecognizer = [[UITapGestureRecognizer alloc] init];
-    [gestureRecognizer setDelegate:myDelegate];
     
     [gestureRecognizer touchesBegan:touches withEvent:nil];
     [gestureRecognizer touchesEnded:touches withEvent:nil];
@@ -23,13 +28,8 @@
 - (void)testThatUITapGestureRecognizerDoesCallHandleGestureOnSingleTapWithMultipleTouches
 {
     var touches = [CPSet setWithObjects:[[CPObject alloc] init], [[CPObject alloc] init]];
-
-    var myDelegate = moq();
-    
     [myDelegate selector:@selector(handleGesture:) times:1];
     
-    var gestureRecognizer = [[UITapGestureRecognizer alloc] init];
-    [gestureRecognizer setDelegate:myDelegate];
     [gestureRecognizer setNumberOfTouchesRequired:2];
     
     [gestureRecognizer touchesBegan:touches withEvent:nil];
@@ -41,13 +41,8 @@
 - (void)testThatUITapGestureRecognizerDoesNotCallHandleGestureOnSingleTapWithMultipleTouchesWhenOnlyOneGiven
 {
     var touches = [CPSet setWithObjects:[[CPObject alloc] init]];
-    
-    var myDelegate = moq();
-
     [myDelegate selector:@selector(handleGesture:) times:0];
 
-    var gestureRecognizer = [[UITapGestureRecognizer alloc] init];
-    [gestureRecognizer setDelegate:myDelegate];
     [gestureRecognizer setNumberOfTouchesRequired:2];
 
     [gestureRecognizer touchesBegan:touches withEvent:nil];
