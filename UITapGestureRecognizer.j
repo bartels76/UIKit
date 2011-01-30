@@ -3,6 +3,8 @@
 @implementation UITapGestureRecognizer : UIGestureRecognizer
 {
     id          _delegate       @accessors(property=delegate);
+    
+    int         _numberOfTouchesRequired    @accessors(property=numberOfTouchesRequired);
 }
 
 - (id)init
@@ -10,6 +12,7 @@
     self = [super init];
     if(self)
     {
+        _numberOfTouchesRequired = 1;
     }
     return self;
 }
@@ -28,7 +31,10 @@
 
 - (void)touchesEnded:(CPSet)touches withEvent:(UIEvent)event
 {
-    [_delegate handleGesture:self];
+    if ([touches count] === _numberOfTouchesRequired)
+    {
+        [_delegate handleGesture:self];
+    }
 }
 
 - (void)touchesCancelled:(CPSet)touches withEvent:(UIEvent)event
