@@ -2,8 +2,6 @@
 
 @implementation UITapGestureRecognizer : UIGestureRecognizer
 {
-    id          _delegate       @accessors(property=delegate);
-    
     int         _numberOfTouchesRequired    @accessors(property=numberOfTouchesRequired);
 }
 
