@@ -1,7 +1,8 @@
-@import <UIKit/UIGestureRecognizer.j>
+@import "UIGestureRecognizer.j"
 
 @implementation UITapGestureRecognizer : UIGestureRecognizer
 {
+    id          _delegate       @accessors(property=delegate);
 }
 
 - (id)init
@@ -27,6 +28,7 @@
 
 - (void)touchesEnded:(CPSet)touches withEvent:(UIEvent)event
 {
+    [_delegate handleGesture:self];
 }
 
 - (void)touchesCancelled:(CPSet)touches withEvent:(UIEvent)event
