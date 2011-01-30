@@ -75,4 +75,19 @@
     [myDelegate verifyThatAllExpectationsHaveBeenMet];
 }
 
+
+- (void)testThatUITapGestureRecognizerDoesUseGivenTargetActionWithNoArguments
+{
+    var touches = [CPSet setWithObjects:[[UITouch alloc] init]];
+
+    [gestureRecognizer setAction:@selector(anotherAction)];
+    [myDelegate selector:@selector(handleGesture:) times:0];
+    [myDelegate selector:@selector(anotherAction) times:1];
+
+    [gestureRecognizer touchesBegan:touches withEvent:nil];
+    [gestureRecognizer touchesEnded:touches withEvent:nil];
+    
+    [myDelegate verifyThatAllExpectationsHaveBeenMet];
+}
+
 @end
