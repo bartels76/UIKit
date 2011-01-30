@@ -52,7 +52,7 @@ task ("install", ["debug", "release"])
 
 task ("symlink-narwhal", ["release", "debug"], function()
 {
-    var frameworksPath = require("tusk").getPackagesDirectory();
+    var frameworksPath = FILE.join("", "usr", "local", "narwhal", "packages", "cappuccino", "Frameworks");
     ["Release", "Debug"].forEach(function(aConfig)
     {
         print("Symlinking " + aConfig + " ...");
