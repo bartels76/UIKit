@@ -1,4 +1,5 @@
 @import "../UITapGestureRecognizer.j"
+@import "../UITouch.j"
 @import <OJMoq/OJMoq.j>
 
 @implementation UITapGestureRecognizerTest : OJTestCase
@@ -16,7 +17,7 @@
 
 - (void)testThatUITapGestureRecognizerDoesCallHandleGestureOnSingleTap
 {
-    var touches = [CPSet setWithObjects:[[CPObject alloc] init]];
+    var touches = [CPSet setWithObjects:[[UITouch alloc] init]];
     [myDelegate selector:@selector(handleGesture:) times:1];
     
     [gestureRecognizer touchesBegan:touches withEvent:nil];
@@ -27,7 +28,7 @@
 
 - (void)testThatUITapGestureRecognizerDoesCallHandleGestureOnSingleTapWithMultipleTouches
 {
-    var touches = [CPSet setWithObjects:[[CPObject alloc] init], [[CPObject alloc] init]];
+    var touches = [CPSet setWithObjects:[[UITouch alloc] init], [[UITouch alloc] init]];
     [myDelegate selector:@selector(handleGesture:) times:1];
     
     [gestureRecognizer setNumberOfTouchesRequired:2];
@@ -40,7 +41,7 @@
 
 - (void)testThatUITapGestureRecognizerDoesNotCallHandleGestureOnSingleTapWithMultipleTouchesWhenOnlyOneGiven
 {
-    var touches = [CPSet setWithObjects:[[CPObject alloc] init]];
+    var touches = [CPSet setWithObjects:[[UITouch alloc] init]];
     [myDelegate selector:@selector(handleGesture:) times:0];
 
     [gestureRecognizer setNumberOfTouchesRequired:2];
