@@ -5,9 +5,9 @@
     int         _numberOfTouchesRequired    @accessors(property=numberOfTouchesRequired);
 }
 
-- (id)init
+- (id)initWithTarget:(id)target action:(SEL)action
 {
-    self = [super init];
+    self = [super initWithTarget:target action:action];
     if(self)
     {
         _numberOfTouchesRequired = 1;
@@ -36,7 +36,7 @@
 {
     if ([touches count] === _numberOfTouchesRequired)
     {
-        [_delegate handleGesture:self];
+        [_target performSelector:_action withObject:self];
     }
 }
 

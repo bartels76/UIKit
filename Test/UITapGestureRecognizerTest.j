@@ -10,9 +10,8 @@
 
 - (void)setUp
 {
-    gestureRecognizer = [[UITapGestureRecognizer alloc] init];
     myDelegate = moq();
-    [gestureRecognizer setDelegate:myDelegate];
+    gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:myDelegate action:@selector(handleGesture:)];
 }
 
 - (void)testThatUITapGestureRecognizerDoesCallHandleGestureOnSingleTap
@@ -60,6 +59,20 @@
     [gestureRecognizer touchesBegan:touches withEvent:nil];
 
     [self assertTrue:[[touch gestureRecognizers] containsObject:gestureRecognizer]];
+}
+
+- (void)testThatUITapGestureRecognizerDoesUseGivenTargetAction
+{
+    var touches = [CPSet setWithObjects:[[UITouch alloc] init]];
+
+    [gestureRecognizer setAction:@selector(anotherAction:)];
+    [myDelegate selector:@selector(handleGesture:) times:0];
+    [myDelegate selector:@selector(anotherAction:) times:1];
+
+    [gestureRecognizer touchesBegan:touches withEvent:nil];
+    [gestureRecognizer touchesEnded:touches withEvent:nil];
+    
+    [myDelegate verifyThatAllExpectationsHaveBeenMet];
 }
 
 @end
