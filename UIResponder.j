@@ -23,10 +23,10 @@
 @import <AppKit/CPResponder.j>
 
 @implementation UIResponder : CPResponder { // Unsure whether it should be its own class, directly derived from CPObject
-	UIResponder	_nextResponder @accessors(getter=nextResponder; setter=setNextResponder:);
+	UIResponder	_nextResponder @accessors(getter=nextResponder,setter=setNextResponder:);
 	BOOL	_isFirstResponder;
 	
-	UIView	_inputView @accessors(inputView);
+	UIView	_inputView @accessors(property=inputView);
 	UIView	_inputAccessoryView @accessors(getter=inputAccessoryView);
 	
 	UIUndoManager	_undoManager @accessors(getter=undoManager);

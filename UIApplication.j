@@ -57,7 +57,7 @@ UIStatusBarAnimationSlide = 2;
 	return self;
 }
 
-- (UIBackgroundTaskIdentifier)beginBackgroundTaskWithExpirationHandler:(void(^)(void))handler { // handler should be a function()
+- (UIBackgroundTaskIdentifier)beginBackgroundTaskWithExpirationHandler:(Function)handler { // handler should be a function()
 	
 }
 
@@ -121,15 +121,15 @@ UIStatusBarAnimationSlide = 2;
 	
 }
 
-- (BOOL)sendAction:(SEL)action to:(id)target from:(id)sender forEvent:(UIEvent *)anEvent {
+- (BOOL)sendAction:(SEL)action to:(id)target from:(id)sender forEvent:(UIEvent)anEvent {
 	return [super sendAction:action to:target from:sender forEvent:anEvent];
 }
 
-- (void)sendEvent:(UIEvent *)anEvent {
+- (void)sendEvent:(UIEvent)anEvent {
 	[super sendEvent:anEvent];
 }
 
-- (BOOL)setKeepAliveTimeout:(NSTimeInterval)timeout handler:(void(^)(void))keepAliveHandler {
+- (BOOL)setKeepAliveTimeout:(NSTimeInterval)timeout handler:(Function)keepAliveHandler {
 	
 }
 

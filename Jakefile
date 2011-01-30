@@ -66,3 +66,14 @@ task ("symlink-narwhal", ["release", "debug"], function()
         OS.system(["sudo", "ln", "-s", buildPath, symlinkPath]);
     });
 });
+
+task("test", ["build"], function()
+{
+    var tests = new FileList('Test/*Test.j');
+    var cmd = ["ojtest"].concat(tests.items());
+    var cmdString = cmd.map(OS.enquote).join(" ");
+
+    var code = OS.system(cmdString);
+    if (code !== 0)
+        OS.exit(code);
+});

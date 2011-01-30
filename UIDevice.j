@@ -1,4 +1,4 @@
-/*
+a/*
  * UIDevice.j
  * UIKit
  *
@@ -37,7 +37,7 @@ UIDeviceOrientationPortraitUpsideDown = @"UIDeviceOrientationPortraitUpsideDown"
 UIDeviceOrientationLandscapeLeft = @"UIDeviceOrientationLandscapeLeft";
 UIDeviceOrientationLandscapeRight = @"UIDeviceOrientationLandscapeRight";
 UIDeviceOrientationFaceUp = @"UIDeviceOrientationFaceUp";
-UIDeviceOrientationFaceDown = = @"UIDeviceOrientationFaceDown";
+UIDeviceOrientationFaceDown = @"UIDeviceOrientationFaceDown";
 
 // UIUserInterfaceIdiom – The type of interface that should be used on the current device.
 UIUserInterfaceIdiomPhone = @"UIUserInterfaceIdiomPhone";
