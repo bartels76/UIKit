@@ -52,4 +52,14 @@
     [myDelegate verifyThatAllExpectationsHaveBeenMet];
 }
 
+- (void)testThatUITapGestureRecognizerDoesAddItselfToUITouchHandlers
+{
+    var touch = [[UITouch alloc] init];
+    var touches = [CPSet setWithObjects:touch];
+
+    [gestureRecognizer touchesBegan:touches withEvent:nil];
+
+    [self assertTrue:[[touch gestureRecognizers] containsObject:gestureRecognizer]];
+}
+
 @end
