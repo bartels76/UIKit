@@ -20,9 +20,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
 
-@import <AppKit/CPResponder.j>
-@import "UIEvent.j"
-@import "UITouch.j"
+@import <Foundation/CPObject.j>
 
 // This is the root of the responder tree.
 var UIRootResponder = nil;
