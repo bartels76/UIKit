@@ -21,6 +21,8 @@
  */
 
 @import <AppKit/CPResponder.j>
+@import "UIEvent.j"
+@import "UITouch.j"
 
 @implementation UIResponder : CPResponder { // Unsure whether it should be its own class, directly derived from CPObject
 	UIResponder	_nextResponder @accessors(getter=nextResponder,setter=setNextResponder:);
@@ -115,15 +117,18 @@
 /* Responding to Touch Events */
 
 - (void)touchstartDOMEvent:(JSObject)evt {
-	[self touchesBegan:nil withEvent:[UIEvent eventWithJSEvent:evt]];
+    var touches = evt.touches.map(function (x) { return [UITouch touchWithJSTouch:x]; });
+	[self touchesBegan:[CPSet setWithArray:touches] withEvent:[UIEvent eventWithJSEvent:evt]];
 }
 
 - (void)touchendDOMEvent:(JSObject)evt {
-	[self touchesEnded:nil withEvent:[UIEvent eventWithJSEvent:evt]];
+    var touches = evt.touches.map(function (x) { return [UITouch touchWithJSTouch:x]; });
+	[self touchesEnded:[CPSet setWithArray:touches] withEvent:[UIEvent eventWithJSEvent:evt]];
 }
 
 - (void)touchmoveDOMEvent:(JSObject)evt {
-	[self touchesMoved:nil withEvent:[UIEvent eventWithJSEvent:evt]];
+    var touches = evt.touches.map(function (x) { return [UITouch touchWithJSTouch:x]; });
+	[self touchesMoved:[CPSet setWithArray:touches] withEvent:[UIEvent eventWithJSEvent:evt]];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {

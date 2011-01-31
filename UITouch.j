@@ -15,6 +15,11 @@
     return self;
 }
 
++ (UITouch)touchWithJSTouch:(id)anEvent
+{
+    return [[UITouch alloc] init];
+}
+
 /*
     @ignore
     'private' function to add gesture recognizers.
