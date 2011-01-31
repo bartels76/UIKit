@@ -11,11 +11,10 @@ UIButtonTypeContactAdd = 5;
 
 @implementation UIButton : UIControl
 {
+    UIButtonType    _buttonType     @accessors(property=buttonType);
     UILabel         _titleLabel     @accessors(property=titleLabel);
     
     CPDictionary    _stateTitles;
-    
-    UIButtonType    _buttonType     @accessors(property=buttonType);
 }
 
 + (UIButton)buttonWithType:(UIButtonType)buttonType
