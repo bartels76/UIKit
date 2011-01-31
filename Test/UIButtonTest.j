@@ -21,6 +21,9 @@
 {
     var button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
     [button setTitle:@"A Title" forState:UIControlStateNormal];
+    
+    [button layoutSubviews];
+    
     [self assert:@"A Title" equals:[[button titleLabel] text]];
 }
 
@@ -50,6 +53,18 @@
     [button setState:UIControlStateDisabled];
     
     [self assert:@"Second Title" equals:[button currentTitle]];
+}
+
+- (void)testThatUIButtonDoesReflectStatefulTitlesInLabel
+{
+    
+    var button = [[UIButton alloc] initWithFrame:CGRectMakeZero()];
+    [button setTitle:@"First Title" forState:UIControlStateNormal];
+    [button setTitle:@"Second Title" forState:UIControlStateDisabled];
+    
+    [button layoutSubviews];
+    
+    [self assert:@"First Title" equals:[[button titleLabel] text]];
 }
 
 @end

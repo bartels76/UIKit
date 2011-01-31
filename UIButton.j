@@ -36,12 +36,16 @@
 - (void)setTitle:(CPString)title forState:(UIControlState)state
 {
     [_stateTitles setObject:title forKey:state];
-    [_titleLabel setText:title];
 }
 
 - (CPString)currentTitle
 {
     return [_stateTitles objectForKey:[self state]];
+}
+
+- (void)layoutSubviews
+{
+    [_titleLabel setText:[_stateTitles objectForKey:[self state]]];
 }
 
 @end
