@@ -5,7 +5,7 @@
 - (void)testThatUIViewDoesLayoutSubviewsWhenNeedsLayout
 {
     var view = [[MyView alloc] initWithFrame:CGRectMakeZero()];
-    [view setNeedsLayout:YES];
+    [view setNeedsLayout];
     [view layoutIfNeeded];
     [self assertTrue:[view called]];
 }

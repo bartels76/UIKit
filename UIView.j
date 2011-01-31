@@ -4,7 +4,7 @@
 {
     CPArray         _gestureRecognizers;
     
-    BOOL            _needsLayout            @accessors(property=needsLayout);
+    BOOL            _needsLayout;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -35,6 +35,13 @@
 - (void)addGestureRecognizer:(UIGestureRecognizer)gestureRecognizer
 {
     [_gestureRecognizers addObject:gestureRecognizer];
+}
+
+- (void)setNeedsLayout
+{
+    _needsLayout = YES;
+
+    // TODO: _CPDisplayServerAddLayoutObject(self);
 }
 
 - (void)layoutIfNeeded
