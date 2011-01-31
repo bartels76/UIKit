@@ -24,7 +24,10 @@
 
 - (void)handleGesture:(UIGestureRecognizer)gestureRecognizer
 {
-    [_target performSelector:_action withObject:self];
+    if (_state !== UIControlStateDisabled)
+    {
+        [_target performSelector:_action withObject:self];
+    }
 }
 
 - (void)setTitle:(CPString)title forState:(UIControlState)state

@@ -9,6 +9,7 @@ UIControlStateReserved             = 1 << 4;
 
 @implementation UIControl : UIView
 {
+    UIControlState      _state      @accessors(property=state);
 }
 
 - (id)init
@@ -16,6 +17,7 @@ UIControlStateReserved             = 1 << 4;
     self = [super init];
     if(self)
     {
+        _state = UIControlStateNormal;
     }
     return self;
 }

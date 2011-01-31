@@ -24,4 +24,19 @@
     [self assert:@"A Title" equals:[[button titleLabel] text]];
 }
 
+- (void)testThatUIButtonDoesNotRecognizeTapWhenDisabled
+{
+    var target = moq();
+    [target selector:@selector(action:) times:0];
+    
+    var button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    [button setTarget:target];
+    [button setAction:@selector(action:)];
+    [button setState:UIControlStateDisabled];
+    [button touchstartDOMEvent:{touches:[{}]}];
+    [button touchendDOMEvent:{touches:[{}]}];
+    
+    [target verifyThatAllExpectationsHaveBeenMet];
+}
+
 @end
