@@ -67,4 +67,11 @@
     [self assert:@"First Title" equals:[[button titleLabel] text]];
 }
 
+- (void)testThatUIButtonDoesCreateWithCustomButtonType
+{
+    var button = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    [self assert:UIButtonTypeCustom equals:[button buttonType]];
+}
+
 @end

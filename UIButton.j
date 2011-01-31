@@ -2,6 +2,13 @@
 @import "UITapGestureRecognizer.j"
 @import "UILabel.j"
 
+UIButtonTypeCustom = 0;
+UIButtonTypeRoundedRect = 1;
+UIButtonTypeDetailDisclosure = 2;
+UIButtonTypeInfoLight = 3;
+UIButtonTypeInfoDark = 4;
+UIButtonTypeContactAdd = 5;
+
 @implementation UIButton : UIControl
 {
     id              _target         @accessors(property=target);
@@ -10,6 +17,15 @@
     UILabel         _titleLabel     @accessors(property=titleLabel);
     
     CPDictionary    _stateTitles;
+    
+    UIButtonType    _buttonType     @accessors(property=buttonType);
+}
+
++ (UIButton)buttonWithType:(UIButtonType)buttonType
+{
+    var result = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    [result setButtonType:buttonType];
+    return result;
 }
 
 - (void)initWithFrame:(CGRect)aFrame
@@ -21,6 +37,7 @@
         
         _stateTitles = [CPDictionary dictionary];
         _titleLabel = [[UILabel alloc] initWithFrame:aFrame];
+        _buttonType = UIButtonTypeRoundedRect;
     }
     return self;
 }
