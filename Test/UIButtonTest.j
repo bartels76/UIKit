@@ -17,4 +17,11 @@
     [target verifyThatAllExpectationsHaveBeenMet];
 }
 
+- (void)testThatUIButtonSetsTheTitleOnTheUILabel
+{
+    var button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    [button setTitle:@"A Title" forState:UIControlStateNormal];
+    [self assert:@"A Title" equals:[[button titleLabel] text]];
+}
+
 @end
