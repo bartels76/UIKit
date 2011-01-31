@@ -4,10 +4,12 @@
 
 @implementation UIButton : UIControl
 {
-    id      _target         @accessors(property=target);
-    SEL     _action         @accessors(property=action);
+    id              _target         @accessors(property=target);
+    SEL             _action         @accessors(property=action);
     
-    UILabel _titleLabel     @accessors(property=titleLabel);
+    UILabel         _titleLabel     @accessors(property=titleLabel);
+    
+    CPDictionary    _stateTitles;
 }
 
 - (void)initWithFrame:(CGRect)aFrame
@@ -17,6 +19,7 @@
     {
         [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)]];
         
+        _stateTitles = [CPDictionary dictionary];
         _titleLabel = [[UILabel alloc] initWithFrame:aFrame];
     }
     return self;
@@ -32,7 +35,13 @@
 
 - (void)setTitle:(CPString)title forState:(UIControlState)state
 {
+    [_stateTitles setObject:title forKey:state];
     [_titleLabel setText:title];
+}
+
+- (CPString)currentTitle
+{
+    return [_stateTitles objectForKey:[self state]];
 }
 
 @end

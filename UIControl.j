@@ -1,20 +1,20 @@
 @import "UIView.j"
 
-UIControlStateNormal               = 0;
-UIControlStateHighlighted          = 1 << 0;
-UIControlStateDisabled             = 1 << 1;
-UIControlStateSelected             = 1 << 2;
-UIControlStateApplication          = 1 << 3;
-UIControlStateReserved             = 1 << 4;
+UIControlStateNormal               = 1 << 0;
+UIControlStateHighlighted          = 1 << 1;
+UIControlStateDisabled             = 1 << 2;
+UIControlStateSelected             = 1 << 3;
+UIControlStateApplication          = 1 << 4;
+UIControlStateReserved             = 1 << 5;
 
 @implementation UIControl : UIView
 {
     UIControlState      _state      @accessors(property=state);
 }
 
-- (id)init
+- (id)initWithFrame:(CGRect)aFrame
 {
-    self = [super init];
+    self = [super initWithFrame:aFrame];
     if(self)
     {
         _state = UIControlStateNormal;

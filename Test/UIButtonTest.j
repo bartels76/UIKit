@@ -39,4 +39,17 @@
     [target verifyThatAllExpectationsHaveBeenMet];
 }
 
+- (void)testThatUIButtonDoesHaveDifferentCurrentTitlesForDifferentStates
+{
+    var button = [[UIButton alloc] initWithFrame:CGRectMakeZero()];
+    [button setTitle:@"First Title" forState:UIControlStateNormal];
+    [button setTitle:@"Second Title" forState:UIControlStateDisabled];
+    
+    [self assert:@"First Title" equals:[button currentTitle]];
+    
+    [button setState:UIControlStateDisabled];
+    
+    [self assert:@"Second Title" equals:[button currentTitle]];
+}
+
 @end
