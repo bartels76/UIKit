@@ -9,7 +9,10 @@ UIControlStateReserved             = 1 << 5;
 
 @implementation UIControl : UIView
 {
-    UIControlState      _state      @accessors(property=state);
+    id                  _target         @accessors(property=target);
+    SEL                 _action         @accessors(property=action);
+
+    UIControlState      _state          @accessors(property=state);
 }
 
 - (id)initWithFrame:(CGRect)aFrame

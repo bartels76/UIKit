@@ -11,9 +11,6 @@ UIButtonTypeContactAdd = 5;
 
 @implementation UIButton : UIControl
 {
-    id              _target         @accessors(property=target);
-    SEL             _action         @accessors(property=action);
-    
     UILabel         _titleLabel     @accessors(property=titleLabel);
     
     CPDictionary    _stateTitles;
