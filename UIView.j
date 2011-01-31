@@ -3,6 +3,8 @@
 @implementation UIView : UIResponder
 {
     CPArray         _gestureRecognizers;
+    
+    BOOL            _needsLayout            @accessors(property=needsLayout);
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -33,6 +35,23 @@
 - (void)addGestureRecognizer:(UIGestureRecognizer)gestureRecognizer
 {
     [_gestureRecognizers addObject:gestureRecognizer];
+}
+
+- (void)layoutIfNeeded
+{
+    if (_needsLayout)
+    {
+        _needsLayout = NO;
+
+        [self layoutSubviews];
+    }
+}
+
+/*
+    Subclasses override this to fill in their ephemeral subviews.
+ */
+- (void)layoutSubviews
+{
 }
 
 @end

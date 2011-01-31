@@ -75,7 +75,6 @@
     [myDelegate verifyThatAllExpectationsHaveBeenMet];
 }
 
-
 - (void)testThatUITapGestureRecognizerDoesUseGivenTargetActionWithNoArguments
 {
     var touches = [CPSet setWithObjects:[[UITouch alloc] init]];
