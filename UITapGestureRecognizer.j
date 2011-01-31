@@ -8,7 +8,7 @@
 - (id)initWithTarget:(id)target action:(SEL)action
 {
     self = [super initWithTarget:target action:action];
-    if(self)
+    if (self)
     {
         _numberOfTouchesRequired = 1;
     }
@@ -22,7 +22,7 @@
 - (void)touchesBegan:(CPSet)touches withEvent:(UIEvent)event
 {
     var arrayOfTouches = [touches allObjects];
-    for(var i = 0, ii = [arrayOfTouches count]; i < ii; i++)
+    for (var i = 0, ii = [arrayOfTouches count]; i < ii; i++)
     {
         [[arrayOfTouches objectAtIndex:i] addGestureRecognizer:self];
     }

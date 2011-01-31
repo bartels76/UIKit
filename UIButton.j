@@ -2,18 +2,18 @@
 @import "UITapGestureRecognizer.j"
 @import "UILabel.j"
 
-UIButtonTypeCustom = 0;
-UIButtonTypeRoundedRect = 1;
-UIButtonTypeDetailDisclosure = 2;
-UIButtonTypeInfoLight = 3;
-UIButtonTypeInfoDark = 4;
-UIButtonTypeContactAdd = 5;
+UIButtonTypeCustom              = 0;
+UIButtonTypeRoundedRect         = 1;
+UIButtonTypeDetailDisclosure    = 2;
+UIButtonTypeInfoLight           = 3;
+UIButtonTypeInfoDark            = 4;
+UIButtonTypeContactAdd          = 5;
 
 @implementation UIButton : UIControl
 {
     UIButtonType    _buttonType     @accessors(property=buttonType);
     UILabel         _titleLabel     @accessors(property=titleLabel);
-    
+
     CPDictionary    _stateTitles;
 }
 
@@ -30,7 +30,7 @@ UIButtonTypeContactAdd = 5;
     if (self)
     {
         [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)]];
-        
+
         _stateTitles = [CPDictionary dictionary];
         _titleLabel = [[UILabel alloc] initWithFrame:aFrame];
         _buttonType = UIButtonTypeRoundedRect;

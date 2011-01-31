@@ -18,10 +18,10 @@
 {
     var touches = [CPSet setWithObjects:[[UITouch alloc] init]];
     [myDelegate selector:@selector(handleGesture:) times:1];
-    
+
     [gestureRecognizer touchesBegan:touches withEvent:nil];
     [gestureRecognizer touchesEnded:touches withEvent:nil];
-    
+
     [myDelegate verifyThatAllExpectationsHaveBeenMet];
 }
 
@@ -29,12 +29,12 @@
 {
     var touches = [CPSet setWithObjects:[[UITouch alloc] init], [[UITouch alloc] init]];
     [myDelegate selector:@selector(handleGesture:) times:1];
-    
+
     [gestureRecognizer setNumberOfTouchesRequired:2];
-    
+
     [gestureRecognizer touchesBegan:touches withEvent:nil];
     [gestureRecognizer touchesEnded:touches withEvent:nil];
-    
+
     [myDelegate verifyThatAllExpectationsHaveBeenMet];
 }
 
@@ -53,8 +53,8 @@
 
 - (void)testThatUITapGestureRecognizerDoesAddItselfToUITouchHandlers
 {
-    var touch = [[UITouch alloc] init];
-    var touches = [CPSet setWithObjects:touch];
+    var touch = [[UITouch alloc] init],
+        touches = [CPSet setWithObjects:touch];
 
     [gestureRecognizer touchesBegan:touches withEvent:nil];
 
@@ -71,7 +71,7 @@
 
     [gestureRecognizer touchesBegan:touches withEvent:nil];
     [gestureRecognizer touchesEnded:touches withEvent:nil];
-    
+
     [myDelegate verifyThatAllExpectationsHaveBeenMet];
 }
 
@@ -86,7 +86,7 @@
 
     [gestureRecognizer touchesBegan:touches withEvent:nil];
     [gestureRecognizer touchesEnded:touches withEvent:nil];
-    
+
     [myDelegate verifyThatAllExpectationsHaveBeenMet];
 }
 

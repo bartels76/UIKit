@@ -8,7 +8,7 @@
 - (id)init
 {
     self = [super init];
-    if(self)
+    if (self)
     {
         _stateTitles = [CPDictionary dictionary];
     }
