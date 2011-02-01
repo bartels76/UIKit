@@ -26,6 +26,7 @@
 @import "UIEvent.j"
 
 @implementation UIPlatformWindowLayer : CALayer
+{
 	DOMElement 	_DOMElement;
 	UIWindow	_view @accessors(property=view);
 	

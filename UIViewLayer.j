@@ -20,34 +20,25 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
 
-<<<<<<< HEAD
 @import <AppKit/CALayer.j>
 
-@implementation UIViewLayer : CALayer {
+@implementation UIViewLayer : CALayer
+{
 	UIView _view @accessors(getter=view);
-=======
-@import "CoreAnimation/CALayer.j"
-
-@implementation UIViewLayer : CALayer {
-	UIView _view @accessors(property=view);
->>>>>>> Implemented some of UIView.
 }
 
-- (id)init {
-	if (self = [super init]) {
+- (id)init
+{
+	if (self = [super init])
+	{
 		
 	}
 	
 	return self;
 }
 
-<<<<<<< HEAD
 - (void)setView:(UIView)aView 
 {
-=======
-- (void)setView:(UIView)aView {
-	[super setView:aView];
->>>>>>> Implemented some of UIView.
 	/*
 	_DOMElement.addEventListener('touchstart', function(evt) { [_view touchstartDOMEvent:evt]; }, false);
 	_DOMElement.addEventListener('touchmove', function(evt) { [_view touchmoveDOMEvent:evt]; }, false);

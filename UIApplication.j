@@ -43,6 +43,7 @@ UIStatusBarAnimationFade = 1;
 UIStatusBarAnimationSlide = 2;
 
 @implementation UIApplication : UIResponder
+{
 	CPNotificationCenter	_localNotificationCenter;
 	
 	CPArray		_eventListeners;
@@ -95,7 +96,7 @@ UIStatusBarAnimationSlide = 2;
 	
 }
 
-- (UIBackgroundTaskIdentifier)beginBackgroundTaskWithExpirationHandler:(void(^)(void))handler { // handler should be a function()
+- (UIBackgroundTaskIdentifier)beginBackgroundTaskWithExpirationHandler:(Function)handler { // handler should be a function()
 	
 }
 
@@ -191,24 +192,24 @@ UIStatusBarAnimationSlide = 2;
 
 @end
 
-var UIApplicationMain(args, namedArgs) {
+UIApplicationMain = function(args, namedArgs) {
 	// hook to allow recorder, etc to manipulate things before starting AppKit
-	if (window.parent !== window && typeof window.parent._childAppIsStarting === "function")
+	if (window.parent !== window && typeof(window.parent._childAppIsStarting) === "function")
 		window.parent._childAppIsStarting(window);
 
-	    var mainBundle = [CPBundle mainBundle],
-	        principalClass = [mainBundle principalClass];
+    var mainBundle = [CPBundle mainBundle],
+        principalClass = [mainBundle principalClass];
 
-	    if (!principalClass)
-	        principalClass = [UIApplication class];
+    if (!principalClass)
+        principalClass = [UIApplication class];
 
-	    [principalClass sharedApplication];
+    [principalClass sharedApplication];
 
-	    if ([args containsObject:"debug"])
-	        CPLogRegister(CPLogPopup);
+    if ([args containsObject:"debug"])
+        CPLogRegister(CPLogPopup);
 
-	    UIApp._args = args;
-	    UIApp._namedArgs = namedArgs;
+    UIApp._args = args;
+    UIApp._namedArgs = namedArgs;
 
-	    [UIApp bootstrap];
-}
+    [UIApp bootstrap];
+};
