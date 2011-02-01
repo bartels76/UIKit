@@ -31,17 +31,15 @@ var UIGestureRecognizerStatePossible = 0,
 	UIGestureRecognizerStateFailed = 5,
 	UIGestureRecognizerStateRecognized = 6;
 	
-@implementation UIGestureRecognizer : CPObject {
-	/* Getting the Recognizer’s State and View */
-	UIGestureRecognizerState	_state @accessors(getter=state;setter=_setState:);
-	UIView	_view @accessors(getter=view;setter=_setView:);
-	BOOL	_enabled @accessors(getter=isEnabled;setter=setEnabled:);
-	/* Getting and Delaying Touches */
-	BOOL 	_cancelsTouchesInView @accessors(getter=cancelsTouchesInView,setter=setCancelsTouchesInView:);
-	BOOL 	_delaysTouchesBegan @accessors(getter=delaysTouchesBegan,setter=setDelaysTouchesBegan:);
-	BOOL	_delaysTouchesEnded @accessors(getter=delaysTouchesEnded,setter=setDelaysTouchesEnded:);
-	/* Setting and Getting the Delegate */
-	CPObject	_delegate @accessors(getter=delegate,setter=setDelegate);
+@implementation UIGestureRecognizer : CPObject
+{
+	UIGestureRecognizerState	_state              @accessors(getter=state,setter=_setState:);
+	UIView	                    _view               @accessors(getter=view,setter=_setView:);
+	BOOL	                    _enabled            @accessors(property=enabled);
+
+	BOOL 	                _cancelsTouchesInView   @accessors(property=cancelsTouchesInView);
+	BOOL 	                _delaysTouchesBegan     @accessors(property=delaysTouchesBegan);
+	BOOL	                _delaysTouchesEnded     @accessors(property=delaysTouchesEnded);
 }
 
 - (id)initWithTarget:(id)target action:(SEL)action {

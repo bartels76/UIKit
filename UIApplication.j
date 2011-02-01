@@ -41,12 +41,13 @@ UIStatusBarAnimationSlide = 2;
 
 //@implementation UIApplication : CPApplication {
 @implementation UIApplication : UIResponder
+{
 	CPNotificationCenter	_localNotificationCenter;
 	
 	CPArray		_eventListeners;
 	UIEvent		_currentEvent;
 	
-	CPObject	_delegate 	@accessors(getter=delegate; setter=setDelegate:);
+	CPObject	_delegate 	@accessors(property=delegate);
 	UIWindow	_keyWindow 	@accessors(getter=keyWindow);
 	CPArray		_windows	@accessors(getter=windows);
 }

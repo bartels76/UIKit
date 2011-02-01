@@ -31,7 +31,8 @@ var	UITouchPhaseBegan = 0
    	UITouchPhaseEnded = 3,
    	UITouchPhaseCancelled = 4;
 
-@implementation UITouch : CPObject {
+@implementation UITouch : CPObject 
+{
 	UIView		_view	@accessors(property=view);
 	UIWindow	_window @accessors(property=window);
 	
@@ -42,7 +43,7 @@ var	UITouchPhaseBegan = 0
 	CPArray		_gestureRecognizers	@accessors(getter=gestureRecognizers);
 	
 	CGPoint	_location @accessors(property=location);
-	CGPoint _previousLocation @property(property=previousLocation);
+	CGPoint _previousLocation @accessors(property=previousLocation);
 }
 
 - (id)init {

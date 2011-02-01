@@ -47,9 +47,9 @@ var	UIWindowDidBecomeVisibleNotification = @"UIWindowDidBecomeVisibleNotificatio
 	UIKeyboardDidHideNotification = @"UIKeyboardDidHideNotification";
 
 @implementation UIWindow : UIView {
-	UIWindowLevel 	_windowLevel @accessors(getter=windowLevel;setter=setWindowLevel:);
+	UIWindowLevel 	_windowLevel @accessors(getter=windowLevel,setter=setWindowLevel:);
 	UIScreen	_screen	@accessors(getter=screen);
-	UIViewController	_rootViewController @accessors(getter=rootViewController;setter=setRootViewController:);
+	UIViewController	_rootViewController @accessors(getter=rootViewController,setter=setRootViewController:);
 	
 	BOOL	_keyWindow	@accessors(getter=isKeyWindow);
 }

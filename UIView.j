@@ -78,18 +78,18 @@ var UIViewAnimationTransitionNone,
 
 @implementation UIView : UIResponder {
 	/* Configuring a View’s Visual Appearance */
-	UIColor	_backgroundColor @accessors(property=ackgroundColor:);
-	BOOL 	_hidden	@accessors(getter=isHidden;setter=setHidden:);
+    UIColor  _backgroundColor @accessors(property=backgroundColor);
+	BOOL 	_hidden	@accessors(getter=isHidden,setter=setHidden:);
 	CGFloat	_alpha	@accessors(property=alpha);
 	BOOL	_opaque	@accessors(property=opaque);
 	BOOL	_clipsToBounds @accessors(property=clipsToBounds);
 	UIViewContentMode	_contentMode @accessors(propertyContentMode);
 	BOOL _clearsContextBeforeDrawing	@accessors(property=clearsContextBeforeDrawing)
-	CALayer	_layer	@accessors(getter=layer;setter=_setLayer:);
+	CALayer	_layer	@accessors(getter=layer,setter=_setLayer:);
 	/* Configuring the Event-Related Behavior*/
-	BOOL _userInteractionEnabled	@accessors(getter=isUserInteractionEnabled;setter=setUserInteractionEnabled:);
-	BOOL _multipleTouchEnabled	@accessors(getter=isMultipleTouchEnabled;setter=setMultipleTouchEnabled:);
-	BOOL _exclusiveTouch	@accessors(getter=isExclusiveTouch;setter=setExclusiveTouch:);
+	BOOL _userInteractionEnabled	@accessors(getter=isUserInteractionEnabled,setter=setUserInteractionEnabled:);
+	BOOL _multipleTouchEnabled	@accessors(getter=isMultipleTouchEnabled,setter=setMultipleTouchEnabled:);
+	BOOL _exclusiveTouch	@accessors(getter=isExclusiveTouch,setter=setExclusiveTouch:);
 	/* Configuring the Bounds and Frame Rectangles */
 	CGRect _frame	@accessors(property=frame);
 	CGRect _bounds	@accessors(property=bounds);
@@ -109,7 +109,7 @@ var UIViewAnimationTransitionNone,
 	/* Managing Gesture Recognizers */
 	CPArray _gestureRecognizers	@accessors(property=gestureRecognizers);
 	/* Identifying the View at Runtime */
-	CPInteger _tag @accesors(property=tag);
+	CPInteger _tag @accessors(property=tag);
 }
 
 - (id)initWithFrame:(CGRect)aRect {
