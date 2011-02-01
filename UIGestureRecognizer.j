@@ -40,6 +40,9 @@ var UIGestureRecognizerStatePossible = 0,
 	BOOL 	                _cancelsTouchesInView   @accessors(property=cancelsTouchesInView);
 	BOOL 	                _delaysTouchesBegan     @accessors(property=delaysTouchesBegan);
 	BOOL	                _delaysTouchesEnded     @accessors(property=delaysTouchesEnded);
+	
+	SEL                         _action             @accessors(property=action);
+	id                          _target             @accessors(property=target);
 }
 
 - (id)initWithTarget:(id)target action:(SEL)action {

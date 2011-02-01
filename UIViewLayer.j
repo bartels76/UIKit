@@ -20,10 +20,10 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
 
-@import "CoreAnimation/CALayer.j"
+@import <AppKit/CALayer.j>
 
 @implementation UIViewLayer : CALayer {
-	UIView _view @accessors(property=view);
+	UIView _view @accessors(getter=view);
 }
 
 - (id)init {
@@ -34,8 +34,8 @@
 	return self;
 }
 
-- (void)setView:(UIView)aView {
-	[super setView:aView];
+- (void)setView:(UIView)aView 
+{
 	/*
 	_DOMElement.addEventListener('touchstart', function(evt) { [_view touchstartDOMEvent:evt]; }, false);
 	_DOMElement.addEventListener('touchmove', function(evt) { [_view touchmoveDOMEvent:evt]; }, false);

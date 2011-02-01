@@ -24,6 +24,7 @@
 @import "UIColor.j"
 @import "UIGestureRecognizer.j"
 @import "UIViewLayer.j"
+@import <AppKit/CGAffineTransform.j>
 
 /* UIViewAnimationOptions */
 var	UIViewAnimationOptionLayoutSubviews            = 1 <<  0,
@@ -119,11 +120,11 @@ var UIViewAnimationTransitionNone,
 		_backgroundColor = nil;
 		_clearsContextBeforeDrawing = YES;
 		_opaque = NO;
-		_layer = [[self layerClass] layer];
+		_layer = [[[self class] layerClass] layer];
 		
 		_userInteractionEnabled = YES;
 		
-		_transform = CGAffineTransformIdentity;
+		_transform = CGAffineTransformMakeIdentity();
 		
 		_autoresizesSubviews = YES;
 		
@@ -141,7 +142,7 @@ var UIViewAnimationTransitionNone,
 
 /* Configuring a View’s Visual Appearance */
 + (Class)layerClass {
-	return [_layer class];
+	return nil;//[_layer class];
 }
 
 /* Configuring the Bounds and Frame Rectangles */

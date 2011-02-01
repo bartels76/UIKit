@@ -85,4 +85,12 @@ var	UITouchPhaseBegan = 0
 	return [_view convertPoint:_previousLocation fromView:[UIApp keyWindow]];
 }
 
+/*
+    @ignore
+ */
+- (void)addGestureRecognizer:(UIGestureRecognizer)gestureRecognizer
+{
+    [_gestureRecognizers addObject:gestureRecognizer];
+}
+
 @end
