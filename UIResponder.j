@@ -25,7 +25,7 @@
 // This is the root of the responder tree.
 var UIRootResponder = nil;
 
-@implementation UIResponder : CPResponder { // Unsure whether it should be its own class, directly derived from CPObject
+@implementation UIResponder : CPObject {
 	UIResponder	_nextResponder @accessors(getter=nextResponder,setter=setNextResponder:);
 	BOOL	_isFirstResponder;
 	

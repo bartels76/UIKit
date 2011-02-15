@@ -25,6 +25,8 @@
 @import "UIDevice.j"
 @import "UIResponder.j"
 @import "UITheme.j"
+@import "UIWindow.j"
+@import "UIPlatformWindowLayer.j"
 
 UIApp = nil,
 CPApp = nil;
@@ -84,7 +86,7 @@ UIStatusBarAnimationSlide = 2;
 - (void)bootstrap {
 	/* Create UIPlatformWindow. */
 	_platformWindow = [[UIWindow alloc] initWithFrame:CGRectMakeZero()];
-	[_platformWindow setLayer:[UIPlatformWindowLayer layer]];
+//	[_platformWindow setLayer:[UIPlatformWindowLayer layer]];
 	/* Load Default Theme. */
 	var themeName = ([[CPBundle mainBundle] objectForInfoDictionaryKey:@"CPDefaultTheme"] || @"Aristo");
 		themePath = [CPBundle pathForResource:themeName];
@@ -194,22 +196,22 @@ UIStatusBarAnimationSlide = 2;
 
 UIApplicationMain = function(args, namedArgs) {
 	// hook to allow recorder, etc to manipulate things before starting AppKit
-	if (window.parent !== window && typeof(window.parent._childAppIsStarting) === "function")
-		window.parent._childAppIsStarting(window);
-
+    if (window.parent !== window && typeof(window.parent._childAppIsStarting) === "function")
+        window.parent._childAppIsStarting(window);
+    
     var mainBundle = [CPBundle mainBundle],
         principalClass = [mainBundle principalClass];
-
+    
     if (!principalClass)
         principalClass = [UIApplication class];
-
+    
     [principalClass sharedApplication];
-
+    
     if ([args containsObject:"debug"])
         CPLogRegister(CPLogPopup);
-
+    
     UIApp._args = args;
     UIApp._namedArgs = namedArgs;
-
+    
     [UIApp bootstrap];
 };

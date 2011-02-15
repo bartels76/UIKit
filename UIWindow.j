@@ -23,7 +23,6 @@
 @import <Foundation/CPObject.j>
 @import "UIView.j"
 @import "UIViewController.j"
-@import "UIScreen.j"
 
 /* UIWindowLevel */
 var	UIWindowLevelNormal = 0.0,
@@ -48,7 +47,6 @@ var	UIWindowDidBecomeVisibleNotification = @"UIWindowDidBecomeVisibleNotificatio
 
 @implementation UIWindow : UIView {
 	UIWindowLevel 	_windowLevel @accessors(getter=windowLevel,setter=setWindowLevel:);
-	UIScreen	_screen	@accessors(getter=screen);
 	UIViewController	_rootViewController @accessors(getter=rootViewController,setter=setRootViewController:);
 	
 	BOOL	_keyWindow	@accessors(getter=isKeyWindow);

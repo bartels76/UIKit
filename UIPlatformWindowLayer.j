@@ -21,7 +21,7 @@
  */
 
 @import <Foundation/CPObject.j>
-@import "CoreAnimation/CPLayer.j"
+@import <AppKit/CALayer.j>
 @import "UITouch.j"
 @import "UIEvent.j"
 

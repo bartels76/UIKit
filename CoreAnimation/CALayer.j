@@ -666,8 +666,8 @@ if (_DOMContentsElement && aLayer._zPosition > _DOMContentsElement.style.zIndex)
 */
 - (void)removeFromSuperlayer
 {
-    if (_owningView)
-        [_owningView setLayer:nil];
+    // if (_owningView)
+    //     [_owningView setLayer:nil];
     
     if (!_superlayer)
         return;
