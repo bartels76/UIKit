@@ -37,8 +37,8 @@ var	UITouchPhaseBegan = 0
 	UIWindow	_window @accessors(property=window);
 	
 	int			_tapCount @accessors(getter=tapCount);
-	CPTimeInterval	_timestamp @accessors(getter=timestamp);
-	UITouchPhase	_phase @accessors(getter=phase);
+	CPTimeInterval	_timestamp @accessors(property=timestamp);
+	UITouchPhase	_phase @accessors(property=phase);
 	
 	CPArray		_gestureRecognizers	@accessors(getter=gestureRecognizers);
 	

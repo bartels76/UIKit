@@ -66,7 +66,7 @@ var	UIEventSubtypeNone                              = 0,
 	[e setType:UIEventTypeTouches];
 	[e setSubtype:UIEventSubtypeNone];
 	[e setChangedTouches:anEvent.changedTouches];
-	[e setTouches:anEvent.allTouches];
+	[e setAllTouches:anEvent.allTouches];
 	return e;
 }
 

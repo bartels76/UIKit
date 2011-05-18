@@ -51,6 +51,8 @@ var UIGestureRecognizerStatePossible = 0,
 
 	if (self = [super init]) {
 		_state = nil;
+    _target = target;
+    _action = action;
 		_view = nil;
 		_enabled = YES;
 		

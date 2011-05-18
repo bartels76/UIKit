@@ -36,7 +36,7 @@
 {
     if ([touches count] === _numberOfTouchesRequired)
     {
-        [_target performSelector:_action withObject:self];
+        [[self target] performSelector:[self action] withObject:self];
     }
 }
 

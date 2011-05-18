@@ -50,23 +50,23 @@ var UIRootResponder = nil;
 
 - (void)touchstartDOMEvent:(JSObject)evt {
 	evt.preventDefault();
-	
 	var touches = evt.changedTouches.map(function (x) { return [UITouch touchWithJSTouch:x]; });
-		[self touchesBegan:[CPSet setWithArray:touches] withEvent:[UIEvent eventWithJSEvent:evt]];
+  var event = [UIEvent eventWithJSEvent:evt];
+		[self touchesBegan:[CPSet setWithArray:touches] withEvent:event];
 }
 
 - (void)touchmoveDOMEvent:(JSObject)evt {
 	evt.preventDefault();
 	
 	var touches = evt.changedTouches.map(function (x) { return [UITouch touchWithJSTouch:x]; });
-		[self touchesEnded:[CPSet setWithArray:touches] withEvent:[UIEvent eventWithJSEvent:evt]];
+		[self touchesMoved:[CPSet setWithArray:touches] withEvent:[UIEvent eventWithJSEvent:evt]];
 }
 
 - (void)touchendDOMEvent:(JSObject)evt {
 	evt.preventDefault();
 	
 	var touches = evt.changedTouches.map(function (x) { return [UITouch touchWithJSTouch:x]; });
-		[self touchesMoved:[CPSet setWithArray:touches] withEvent:[UIEvent eventWithJSEvent:evt]];
+		[self touchesEnded:[CPSet setWithArray:touches] withEvent:[UIEvent eventWithJSEvent:evt]];
 }
 
 - (void)touchcancelDOMEvent:(JSObject)evt {
